@@ -35,7 +35,7 @@ func TestValidConfigLoad(t *testing.T) {
 	}
 
 	expected := Config{
-		Endpoint: endpoint{
+		Endpoint: Endpoint{
 			Host: "example.com",
 			Path: "/api/v1/data",
 		},
@@ -86,11 +86,12 @@ func TestMissingConfigError(t *testing.T) {
 	}
 
 	expectedErrorLines := []string{
-		"4 errors occurred:",
+		"5 errors occurred:",
 		"\t* token is required",
 		"\t* schedule is required",
 		"\t* endpoint host is required",
 		"\t* endpoint path is required",
+		"\t* endpoint path must start with /",
 		"\n",
 	}
 
